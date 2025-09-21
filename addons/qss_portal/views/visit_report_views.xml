@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Visit Report Form -->
+  <record id="view_qss_visit_report_form" model="ir.ui.view">
+    <field name="name">qss.visit.report.form</field>
+    <field name="model">qss.visit.report</field>
+    <field name="arch" type="xml">
+      <form string="Visit Report">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="inspection_call_id"/>
+            <field name="engineer_id"/>
+            <field name="state" widget="statusbar"/>
+          </group>
+          <group string="Document">
+            <field name="report_file" filename="report_filename"/>
+            <field name="report_filename" invisible="1"/>
+          </group>
+        </sheet>
+
+          <header>
+           <!-- Submit button (engineer) -->
+           <button name="action_submit_report"
+                   type="object"
+                   string="Submit Report"
+                   groups="qss_portal.group_qss_inspection_engineer"
+                   class="btn-primary"
+                   invisible="state != 'draft'"/>
+
+           <!-- Mark as Reviewed (engineering group only) -->
+           <button name="action_mark_reviewed"
+                   type="object"
+                   string="Mark as Reviewed"
+                   class="btn-secondary"
+                   groups="qss_portal.group_qss_engineering"
+                   invisible="state != 'submitted'"/>
+
+           <!-- Approve (project group only) -->
+           <button name="action_approve"
+                   type="object"
+                   string="Approve"
+                   class="btn-success"
+                   groups="qss_portal.group_qss_project"
+                   invisible="state != 'review'"/>
+
+           <!-- Finalize (engineering group) -->
+           <button name="action_finalize"
+                   type="object"
+                   string="Finalize"
+                   class="btn-primary"
+                   groups="qss_portal.group_qss_engineering"
+                   invisible="state != 'approved'"/>
+
+          </header>
+
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <!-- Visit Report Tree -->
+  <record id="view_qss_visit_report_tree" model="ir.ui.view">
+    <field name="name">qss.visit.report.tree</field>
+    <field name="model">qss.visit.report</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="inspection_call_id"/>
+        <field name="engineer_id"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Action -->
+  <record id="action_qss_visit_report" model="ir.actions.act_window">
+    <field name="name">Visit Reports</field>
+    <field name="res_model">qss.visit.report</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

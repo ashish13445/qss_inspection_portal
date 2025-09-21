@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Root menu -->
+    <menuitem id="menu_qss_root" name="QSS" sequence="10"/>
+
+    <!-- Parent Menus -->
+    <menuitem id="menu_qss_marketing" name="Marketing" parent="menu_qss_root" sequence="10"/>
+    <menuitem id="menu_qss_engineering" name="Engineering Coordination" parent="menu_qss_root" sequence="20"/>
+    <menuitem id="menu_qss_accounts" name="Accounts" parent="menu_qss_root" sequence="30"/>
+    <menuitem id="menu_qss_operations" name="Operations" parent="menu_qss_root" sequence="40"/>
+    <menuitem id="menu_qss_inspection_engineer" name="Inspection Engineer" parent="menu_qss_root" sequence="50"/>
+    <menuitem id="menu_qss_project_manager" name="Project Manager" parent="menu_qss_root" sequence="60"/>
+
+
+    <record id="action_qss_pm_projects" model="ir.actions.act_window">
+    <field name="name">Projects</field>
+    <field name="res_model">qss.project.number</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_pm_enquiries" model="ir.actions.act_window">
+        <field name="name">Enquiries</field>
+        <field name="res_model">qss.enquiry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_pm_inspection_calls" model="ir.actions.act_window">
+        <field name="name">Inspection Calls</field>
+        <field name="res_model">qss.inspection.call</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_qss_enquiry" model="ir.actions.act_window">
+        <field name="name">Enquiries</field>
+        <field name="res_model">qss.enquiry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_quotation" model="ir.actions.act_window">
+        <field name="name">Quotations</field>
+        <field name="res_model">qss.quotation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_project_number" model="ir.actions.act_window">
+        <field name="name">Project Numbers</field>
+        <field name="res_model">qss.project.number</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_inspection_call" model="ir.actions.act_window">
+        <field name="name">Inspection Calls</field>
+        <field name="res_model">qss.inspection.call</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_visit_report" model="ir.actions.act_window">
+        <field name="name">Visit Reports</field>
+        <field name="res_model">qss.visit.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_qss_payment" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">qss.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Inspection Engineer Actions -->
+    <record id="action_qss_visit_report_engineer" model="ir.actions.act_window">
+        <field name="name">My Visit Reports</field>
+        <field name="res_model">qss.visit.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('engineer_id', '=', uid)]</field>
+        <field name="context">{'default_engineer_id': uid}</field>
+    </record>
+
+    <record id="action_qss_inspection_call_engineer" model="ir.actions.act_window">
+        <field name="name">Assigned Inspection Calls</field>
+        <field name="res_model">qss.inspection.call</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('visit_report_id.engineer_id', '=', uid)]</field>
+    </record>
+
+    <record id="action_qss_visit_report_pm" model="ir.actions.act_window">
+    <field name="name">Visit Reports (Approval)</field>
+    <field name="res_model">qss.visit.report</field>
+    <field name="view_mode">tree,form</field>
+    <!-- Optional: show only reports that need approval -->
+    </record>
+
+    <!-- Menus with Actions -->
+    <menuitem id="menu_qss_enquiries" name="Enquiries" parent="menu_qss_marketing" action="action_qss_enquiry" groups="qss_portal.group_qss_marketing" sequence="10"/>
+    <menuitem id="menu_qss_quotations" name="Quotations" parent="menu_qss_marketing" action="action_qss_quotation" groups="qss_portal.group_qss_marketing" sequence="20"/>
+    <menuitem id="menu_qss_quotations" name="Quotations" parent="menu_qss_accounts" action="action_qss_quotation" groups="qss_portal.group_qss_accounts" sequence="20"/>
+
+    <menuitem id="menu_qss_project_numbers" name="Project Numbers" parent="menu_qss_accounts" action="action_qss_project_number" groups="qss_portal.group_qss_accounts" sequence="10"/>
+    <menuitem id="menu_qss_inspection_calls" name="Inspection Calls" parent="menu_qss_engineering" action="action_qss_inspection_call" groups="qss_portal.group_qss_engineering" sequence="10"/>
+    <menuitem id="menu_qss_visit_reports" name="Visit Reports" parent="menu_qss_engineering" action="action_qss_visit_report" groups="qss_portal.group_qss_engineering" sequence="20"/>
+    <menuitem id="menu_qss_payments" name="Payments" parent="menu_qss_accounts" action="action_qss_payment" groups="qss_portal.group_qss_accounts" sequence="20"/>
+    
+    <!-- Inspection Engineer Menus -->
+    <menuitem id="menu_qss_engineer_visit_reports" name="My Visit Reports" parent="menu_qss_inspection_engineer" action="action_qss_visit_report_engineer" groups="qss_portal.group_qss_inspection_engineer" sequence="10"/>
+    <menuitem id="menu_qss_engineer_inspection_calls" name="Assigned Inspection Calls" parent="menu_qss_inspection_engineer" action="action_qss_inspection_call_engineer" groups="qss_portal.group_qss_inspection_engineer" sequence="20"/>
+
+    <menuitem id="menu_qss_pm_projects" name="Projects" parent="menu_qss_project_manager"
+          action="action_qss_pm_projects" groups="qss_portal.group_qss_project" sequence="10"/>
+    <menuitem id="menu_qss_pm_enquiries" name="Enquiries" parent="menu_qss_project_manager"
+            action="action_qss_pm_enquiries" groups="qss_portal.group_qss_project" sequence="20"/>
+    <menuitem id="menu_qss_pm_inspection_calls" name="Inspection Calls" parent="menu_qss_project_manager"
+            action="action_qss_pm_inspection_calls" groups="qss_portal.group_qss_project" sequence="30"/>
+    <menuitem id="menu_qss_visit_report_pm"
+            name="Visit Reports"
+            parent="menu_qss_project_manager"
+            action="action_qss_visit_report_pm"
+            groups="qss_portal.group_qss_project"
+            sequence="40"/>
+</odoo>
+    

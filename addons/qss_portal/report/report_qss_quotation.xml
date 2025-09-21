@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Report Action -->
+  <record id="action_report_qss_quotation" model="ir.actions.report">
+    <field name="name">Quotation Report</field>
+    <field name="model">qss.quotation</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">qss_portal.report_qss_quotation_document</field>
+    <field name="report_file">qss_portal.report_qss_quotation_document</field>
+    <field name="print_report_name">'Quotation - %s' % (object.name)</field>
+  </record>
+
+  <!-- QWeb Report Template -->
+  <template id="report_qss_quotation_document">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="web.external_layout">
+          <div class="page">
+            <h2>Quotation: <span t-field="o.name"/></h2>
+            <p><strong>Client:</strong> <span t-field="o.client_id.name"/></p>
+            <p><strong>Enquiry:</strong> <span t-field="o.enquiry_id.name"/></p>
+            <p><strong>Total Amount:</strong> <span t-field="o.amount_total"/></p>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

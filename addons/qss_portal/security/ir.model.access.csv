@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qss_enquiry_user,access.qss.enquiry,model_qss_enquiry,base.group_user,1,1,1,0
+access_qss_quotation_user,access.qss.quotation,model_qss_quotation,base.group_user,1,1,1,0
+access_qss_project_number_accounts,access.qss.project.number,model_qss_project_number,qss_portal.group_qss_accounts,1,1,1,0
+access_qss_project_number_engineering,access.qss.project.number.engineering,model_qss_project_number,qss_portal.group_qss_engineering,1,0,0,0
+access_qss_inspection_call_engineering,access.qss.inspection.call,model_qss_inspection_call,qss_portal.group_qss_engineering,1,1,1,0
+access_qss_visit_report_engineer,access.qss.visit.report,model_qss_visit_report,qss_portal.group_qss_inspection_engineer,1,1,1,0
+access_qss_inspection_call_engineer,access.qss.inspection.call,model_qss_inspection_call,qss_portal.group_qss_inspection_engineer,1,0,0,0
+access_qss_payment_accounts,access.qss.payment,model_qss_payment,qss_portal.group_qss_accounts,1,1,1,0
+access_qss_project_manager_project,qss.project.number,model_qss_project_number,qss_portal.group_qss_project,1,0,0,0
+access_qss_project_manager_enquiry,qss.enquiry,model_qss_enquiry,qss_portal.group_qss_project,1,0,0,0
+access_qss_project_manager_inspection_call,qss.inspection.call,model_qss_inspection_call,qss_portal.group_qss_project,1,0,0,0
+access_qss_visit_report_coordinator,access.qss.visit.report.engineering,model_qss_visit_report,qss_portal.group_qss_engineering,1,1,0,0
+access_qss_visit_report_pm,access.qss.visit.report.pm,model_qss_visit_report,qss_portal.group_qss_project,1,1,0,0
+access_qss_quotation_accounts,access.qss.quotation.accounts,model_qss_quotation,qss_portal.group_qss_accounts,1,1,1,0
+access_qss_invoice,access.qss.invoice,model_qss_invoice,qss_portal.group_qss_accounts,1,1,1,0

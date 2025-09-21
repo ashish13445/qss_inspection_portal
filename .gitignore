@@ -1,0 +1,64 @@
+# ------------------------------
+# Python / Virtual Environment
+# ------------------------------
+venv/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.log
+
+# ------------------------------
+# Odoo / Project Files
+# ------------------------------
+*.zip
+*.tar.gz
+*.egg-info/
+*.dist-info/
+.odoo_env/
+*.db
+*.sqlite3
+.filestore/
+*.session
+*.backup
+*.dump
+*.sql
+
+# ------------------------------
+# Node / JS
+# ------------------------------
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ------------------------------
+# Build / Temp files
+# ------------------------------
+*.tmp
+*.bak
+*.orig
+*.DS_Store
+*.egg
+
+# ------------------------------
+# Coverage / Test reports
+# ------------------------------
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# ------------------------------
+# IDE / Local Configs
+# ------------------------------
+.idea/
+.vscode/
+config/*.conf
+config/*.cfg
+private/

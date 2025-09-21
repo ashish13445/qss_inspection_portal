@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_qss_inspection_call_form" model="ir.ui.view">
+    <field name="name">qss.inspection.call.form</field>
+    <field name="model">qss.inspection.call</field>
+    <field name="arch" type="xml">
+      <form string="Inspection Call">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="project_number_id" />
+            <field name="client_id" readonly="1"/>
+            <field name="manufacturer_name"/>
+            <field name="manufacturer_address"/>
+            <field name="manufacturer_contact"/>
+            <field name="client_contact"/>
+            <field name="special_instructions"/>
+            <field name="assigned_engineer_id"/>
+            <field name="state" widget="statusbar"/>
+          </group>
+          <group string="Documents">
+            <field name="po_copy"/>
+            <field name="drawings"/>
+            <field name="data_sheet"/>
+          </group>
+          <notebook>
+            <page string="Visit Reports">
+              <field name="visit_report_id">
+                <tree>
+                  <field name="name"/>
+                  <field name="engineer_id"/>
+                  <field name="state"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+        <header>
+            <button name="action_assign_engineer"
+                    type="object"
+                    string="Assign Engineer"
+                    class="btn-primary"
+                    invisible="assigned_engineer_id == False"/>
+        </header>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_qss_inspection_call_tree" model="ir.ui.view">
+    <field name="name">qss.inspection.call.tree</field>
+    <field name="model">qss.inspection.call</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="project_number_id"/>
+        <field name="manufacturer_name"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_qss_inspection_call" model="ir.actions.act_window">
+    <field name="name">Inspection Calls</field>
+    <field name="res_model">qss.inspection.call</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
+
+

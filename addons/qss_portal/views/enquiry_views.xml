@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_qss_enquiry_form" model="ir.ui.view">
+    <field name="name">qss.enquiry.form</field>
+    <field name="model">qss.enquiry</field>
+    <field name="arch" type="xml">
+      <form string="Enquiry">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="client_id"/>
+            <field name="state" widget="statusbar"/>
+            <field name="description"/>
+          </group>
+          <notebook>
+            <page string="Quotations">
+              <field name="quotation_id">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <field name="state"/>
+                  <field name="amount_total"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_qss_enquiry_tree" model="ir.ui.view">
+    <field name="name">qss.enquiry.tree</field>
+    <field name="model">qss.enquiry</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="client_id"/>
+        <field name="state"/>
+        <field name="create_date"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_qss_enquiry" model="ir.actions.act_window">
+    <field name="name">Enquiries</field>
+    <field name="res_model">qss.enquiry</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
+
+

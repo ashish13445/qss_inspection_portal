@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_qss_project_number_form" model="ir.ui.view">
+    <field name="name">qss.project.number.form</field>
+    <field name="model">qss.project.number</field>
+    <field name="arch" type="xml">
+      <form string="Project Unique Number">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="client_id"/>
+            <field name="project_name"/>
+            <field name="quotation_id"/>
+            <field name="state" widget="statusbar"/>
+          </group>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_qss_project_number_tree" model="ir.ui.view">
+    <field name="name">qss.project.number.tree</field>
+    <field name="model">qss.project.number</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="client_id"/>
+        <field name="project_name"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_qss_project_number" model="ir.actions.act_window">
+    <field name="name">Project Numbers</field>
+    <field name="res_model">qss.project.number</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
+
+

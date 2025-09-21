@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_qss_enquiry" model="ir.sequence">
+            <field name="name">QSS Enquiry</field>
+            <field name="code">qss.enquiry</field>
+            <field name="prefix">ENQ/%(y)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_qss_quotation" model="ir.sequence">
+            <field name="name">QSS Quotation</field>
+            <field name="code">qss.quotation</field>
+            <field name="prefix">QT/%(y)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_qss_project_number" model="ir.sequence">
+            <field name="name">QSS Project Number</field>
+            <field name="code">qss.project.number</field>
+            <field name="prefix">PRJ/%(y)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_qss_inspection_call" model="ir.sequence">
+            <field name="name">QSS Inspection Call</field>
+            <field name="code">qss.inspection.call</field>
+            <field name="prefix">IC/%(y)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_qss_visit_report" model="ir.sequence">
+            <field name="name">QSS Visit Report</field>
+            <field name="code">qss.visit.report</field>
+            <field name="prefix">VR/%(y)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_qss_payment" model="ir.sequence">
+            <field name="name">QSS Payment</field>
+            <field name="code">qss.payment</field>
+            <field name="prefix">PAY/%(y)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>
+
+

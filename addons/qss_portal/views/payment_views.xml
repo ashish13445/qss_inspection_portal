@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_qss_payment_form" model="ir.ui.view">
+    <field name="name">qss.payment.form</field>
+    <field name="model">qss.payment</field>
+    <field name="arch" type="xml">
+      <form string="Payment">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="project_number_id"/>
+            <field name="invoice_reference"/>
+            <field name="amount"/>
+            <field name="utr_number"/>
+            <field name="state" widget="statusbar"/>
+          </group>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_qss_payment_tree" model="ir.ui.view">
+    <field name="name">qss.payment.tree</field>
+    <field name="model">qss.payment</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="project_number_id"/>
+        <field name="invoice_reference"/>
+        <field name="amount"/>
+        <field name="utr_number"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_qss_payment" model="ir.actions.act_window">
+    <field name="name">Payments</field>
+    <field name="res_model">qss.payment</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
+
+

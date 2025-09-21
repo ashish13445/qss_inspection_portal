@@ -1,0 +1,159 @@
+QSS Portal - Usage by Role (Odoo 17)
+====================================
+
+Overview
+--------
+This guide explains how each team uses the QSS Portal, their responsibilities, and the typical tasks they perform. It maps directly to the data models and menus provided by the `qss_portal` addon.
+
+Core Menus (Backend)
+--------------------
+- QSS / Marketing
+  - Enquiries (model: qss.enquiry)
+  - Quotations (model: qss.quotation)
+- QSS / Engineering Coordination
+  - Inspection Calls (model: qss.inspection.call)
+  - Visit Reports (model: qss.visit.report)
+- QSS / Accounts
+  - Project Numbers (model: qss.project.number)
+  - Payments (model: qss.payment)
+- QSS / Operations (notifications/tasks driven; no dedicated models yet)
+
+Reference Numbers (Sequences)
+-----------------------------
+- Enquiry Reference: ENQ/YYYY/####
+- Quotation Number: QT/YYYY/####
+- Project Unique Number: PRJ/YYYY/####
+- Inspection Call Reference: IC/YYYY/####
+- Visit Report Number: VR/YYYY/####
+- Payment Reference: PAY/YYYY/####
+
+Roles & Responsibilities
+------------------------
+1) Marketing Team
+   Responsibilities:
+   - Intake client enquiries and understand requirements
+   - Create and send quotations
+   - Upload client-approved quotation and work order
+   - Coordinate with Accounts to ensure Project Unique Number is generated
+
+   Daily Tasks:
+   - Create Enquiry: QSS / Marketing / Enquiries > New
+     - Fields: Client, Requirements (Description)
+     - System auto-assigns Enquiry Reference
+   - Create Quotation linked to the Enquiry: QSS / Marketing / Quotations > New
+     - Set Enquiry, Amount, and prepare details
+     - State progression: Draft -> Sent -> (Approved/Rejected)
+     - Upload client Work Order when approved (binary field)
+   - Monitor statuses (Enquiry and Quotation state fields) and follow up
+
+2) Engineering Coordination Team
+   Responsibilities:
+   - Receive inspection calls and collect required documents
+   - Assign to Inspection Engineer and track visit/report
+   - Review inspection reports and finalize for client submission
+
+   Daily Tasks:
+   - Register Inspection Call: QSS / Engineering Coordination / Inspection Calls > New
+     - Select Project Unique Number
+     - Provide Manufacturer details, contacts, special instructions
+     - Attach required documents (PO copy, Drawings/Specs, Data Sheets/QAP)
+     - System assigns IC Reference
+   - Create/Review Visit Reports: QSS / Engineering Coordination / Visit Reports
+     - Link to Inspection Call, set Engineer, upload Report Document
+     - State progression: Draft -> Submitted -> Under Review -> Approved -> Finalized
+   - Review cycles with Project Manager (via chatter/activities; future rule-based routing can be added)
+
+3) Accounts Team
+   Responsibilities:
+   - Generate Project Unique Number after order confirmation
+   - Raise bills/payments and record NEFT/UTR number
+   - Mark invoices/payments as complete
+
+   Daily Tasks:
+   - Create Project Unique Number: QSS / Accounts / Project Numbers > New
+     - Fields: Client, Project Name, (optional) Quotation
+     - System assigns PRJ number
+   - Record Payments: QSS / Accounts / Payments > New
+     - Fields: Project Unique Number, Invoice Reference, Amount, Currency
+     - Update UTR on receipt and set state to Paid
+
+4) Operations Team
+   Responsibilities:
+   - Receive notifications (unique number, inspection reports, billing)
+   - Track execution readiness and logistics
+   - Update NEFT/UTR in coordination with Accounts (if delegated)
+
+   Daily Tasks:
+   - Review notifications in chatter and activities on related records
+   - Verify that Inspection Calls have required documents and Visit Reports are finalized
+   - Confirm payment states (Pending/Paid) for scheduling
+
+5) Project Team
+   Responsibilities:
+   - Review finalized inspection reports
+   - Provide managerial approval feedback to Engineering Coordination
+
+   Daily Tasks:
+   - Access Visit Reports (read) and comment/approve via chatter
+   - Coordinate with Engineering Coordination for final submission to client
+
+6) Inspection Engineer
+   Responsibilities:
+   - Attend assigned inspection calls
+   - Upload Visit Report and supporting documents
+
+   Daily Tasks:
+   - Open Visit Reports assigned to them
+   - Upload report file and move through states until Submitted
+   - Respond to review comments and finalize
+
+7) Client (External)
+   Responsibilities:
+   - Send enquiry
+   - Approve quotation and send work order
+   - Raise inspection call via email
+   - Receive final report; pay invoice
+
+   Interactions:
+   - Email-based flow with attachments; portal email templates can be added later
+
+Status Tracking & Notifications (Planned Enhancements)
+-----------------------------------------------------
+- Track status across all documents via state fields and chatter
+- Automated notifications on key transitions (quotation sent/approved, unique number generated, inspection call created, report finalized, payment received)
+- Scheduled reminders for pending items (quotation follow-up, missing inspection documents, report review, unpaid invoices)
+- Role-based record rules to restrict views to relevant teams
+- Analytics dashboards: counts, cycle times, conversion rates, revenue by client/project
+
+Quick How-Tos
+-------------
+- Approve a Quotation:
+  1. Open Quotation > set state to Approved
+  2. Upload Work Order (if not already)
+  3. Notify Accounts to create Project Unique Number
+
+- Create an Inspection Call:
+  1. Ensure a Project Unique Number exists (Accounts)
+  2. New Inspection Call > fill manufacturer/client contacts
+  3. Attach PO, drawings/specs, data sheet/QAP, special instructions
+
+- Finalize a Visit Report:
+  1. Engineer uploads report and submits
+  2. Coordinator reviews; Project Manager provides feedback
+  3. Coordinator marks as Finalized and sends to Client
+
+- Record a Payment:
+  1. Accounts: New Payment > set Project Unique Number, invoice ref, amount
+  2. When client pays, set UTR and change state to Paid
+
+Access & Permissions (Initial Defaults)
+--------------------------------------
+- All internal users can read/write Enquiries and Quotations
+- Accounts can manage Project Numbers and Payments
+- Engineering can manage Inspection Calls and Visit Reports
+- Future hardening via record rules to limit cross-team visibility
+
+Support
+-------
+- If you cannot see a menu, ensure you have the correct group: Marketing, Engineering Coordination, Accounts, Operations, Project
+- For password/role changes, contact the Odoo administrator
