@@ -10,7 +10,9 @@
     <menuitem id="menu_qss_operations" name="Operations" parent="menu_qss_root" sequence="40"/>
     <menuitem id="menu_qss_inspection_engineer" name="Inspection Engineer" parent="menu_qss_root" sequence="50"/>
     <menuitem id="menu_qss_project_manager" name="Project Manager" parent="menu_qss_root" sequence="60"/>
-
+     <menuitem id="menu_qss_operations_root" 
+              name="Operations"
+              sequence="10"/>
 
     <record id="action_qss_pm_projects" model="ir.actions.act_window">
     <field name="name">Projects</field>
@@ -100,39 +102,37 @@
     <menuitem id="menu_qss_visit_reports" name="Visit Reports" parent="menu_qss_engineering" action="action_qss_visit_report" groups="qss_portal.group_qss_engineering" sequence="20"/>
     <menuitem id="menu_qss_payments" name="Payments" parent="menu_qss_accounts" action="action_qss_payment" groups="qss_portal.group_qss_accounts" sequence="20"/>
 
-     <menuitem id="menu_qss_operations_root" 
-              name="Operations"
-              sequence="10"/>
+
 
     <!-- Submenus -->
     <menuitem id="menu_qss_operations_enquiries" 
               name="Enquiries" 
               parent="menu_qss_operations_root" 
-              action="action_qss_enquiries"
+              action="action_qss_enquiry"
               groups="qss_portal.group_qss_operations"/>
 
     <menuitem id="menu_qss_operations_quotations" 
               name="Quotations" 
               parent="menu_qss_operations_root" 
-              action="action_qss_quotations"
+              action="action_qss_quotation"
               groups="qss_portal.group_qss_operations"/>
 
     <menuitem id="menu_qss_operations_inspection_calls" 
               name="Inspection Calls" 
               parent="menu_qss_operations_root" 
-              action="action_qss_inspection_calls"
+              action="action_qss_inspection_call"
               groups="qss_portal.group_qss_operations"/>
 
     <menuitem id="menu_qss_operations_visit_reports" 
               name="Visit Reports" 
               parent="menu_qss_operations_root" 
-              action="action_qss_visit_reports"
+              action="action_qss_visit_report"
               groups="qss_portal.group_qss_operations"/>
 
     <menuitem id="menu_qss_operations_payments" 
               name="Payments" 
               parent="menu_qss_operations_root" 
-              action="action_qss_payments"
+              action="action_qss_payment"
               groups="qss_portal.group_qss_operations"/>
     
     <!-- Inspection Engineer Menus -->
