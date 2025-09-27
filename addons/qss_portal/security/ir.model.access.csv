@@ -1,6 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_qss_enquiry_user,access.qss.enquiry,model_qss_enquiry,base.group_user,1,1,1,0
-access_qss_quotation_user,access.qss.quotation,model_qss_quotation,base.group_user,1,1,1,0
+access_qss_enquiry_user,access.qss.enquiry,model_qss_enquiry,base.group_user,1,1,1,1
+access_qss_quotation_user,access.qss.quotation,model_qss_quotation,base.group_user,1,1,1,1
 access_qss_project_number_accounts,access.qss.project.number,model_qss_project_number,qss_portal.group_qss_accounts,1,1,1,0
 access_qss_project_number_engineering,access.qss.project.number.engineering,model_qss_project_number,qss_portal.group_qss_engineering,1,0,0,0
 access_qss_inspection_call_engineering,access.qss.inspection.call,model_qss_inspection_call,qss_portal.group_qss_engineering,1,1,1,0
