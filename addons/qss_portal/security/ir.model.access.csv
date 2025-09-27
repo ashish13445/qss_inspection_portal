@@ -14,3 +14,9 @@ access_qss_visit_report_coordinator,access.qss.visit.report.engineering,model_qs
 access_qss_visit_report_pm,access.qss.visit.report.pm,model_qss_visit_report,qss_portal.group_qss_project,1,1,0,0
 access_qss_quotation_accounts,access.qss.quotation.accounts,model_qss_quotation,qss_portal.group_qss_accounts,1,1,1,0
 access_qss_invoice,access.qss.invoice,model_qss_invoice,qss_portal.group_qss_accounts,1,1,1,0
+access_qss_enquiry_operations,access.qss.enquiry.operations,model_qss_enquiry,qss_portal.group_qss_operations,1,0,0,0
+access_qss_quotation_operations,access.qss.quotation.operations,model_qss_quotation,qss_portal.group_qss_operations,1,0,0,0
+access_qss_project_number_operations,access.qss.project.number.operations,model_qss_project_number,qss_portal.group_qss_operations,1,0,0,0
+access_qss_inspection_call_operations,access.qss.inspection.call.operations,model_qss_inspection_call,qss_portal.group_qss_operations,1,0,0,0
+access_qss_visit_report_operations,access.qss.visit.report.operations,model_qss_visit_report,qss_portal.group_qss_operations,1,0,0,0
+access_qss_payment_operations,access.qss.payment.operations,model_qss_payment,qss_portal.group_qss_operations,1,1,0,0
